@@ -2,7 +2,8 @@
 
 package lesson1.task1
 
-import kotlin.math.*
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 /**
  * Пример
@@ -110,7 +111,8 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Сколько денег будет на счету через 3 года (с учётом сложных процентов)?
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
-fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
+fun accountInThreeYears(initial: Int, percent: Int): Double = initial * (1 + percent / 100.toDouble()).pow(3)
+
 
 /**
  * Простая
@@ -118,4 +120,15 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int = TODO()
+fun numberRevert(number: Int): Int {
+    var reversed = 0
+    var num = number
+
+    while (num != 0) {
+        val digit = num % 10
+        reversed = reversed * 10 + digit
+        num /= 10
+    }
+    println(reversed)
+    return reversed
+}
